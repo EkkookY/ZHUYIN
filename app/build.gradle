@@ -1,0 +1,138 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+android {
+    namespace 'com.example.testzhuyin'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.testzhuyin"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a","x86_64"
+        }
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+        }
+        release {
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_ui_version
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+    implementation 'androidx.activity:activity-compose:1.3.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    //compose
+    implementation "androidx.compose.ui:ui:$compose_ui_version"
+    implementation "androidx.compose.material:material:$compose_ui_version"
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_ui_version"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
+    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
+    implementation "androidx.navigation:navigation-compose:2.4.0-beta02"
+    implementation "androidx.compose.runtime:runtime:$compose_ui_version"
+    implementation "androidx.constraintlayout:constraintlayout-compose:1.0.1"//约束布局
+    implementation 'androidx.compose.material3:material3:1.0.0-alpha02'
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1'
+    implementation 'androidx.activity:activity-compose:1.6.1'
+
+    // startup
+    implementation "androidx.startup:startup-runtime:1.2.0-alpha01"
+
+
+    //accompanist辅助器
+    implementation "com.google.accompanist:accompanist-insets:$accompanistVersion"
+    implementation "com.google.accompanist:accompanist-coil:0.15.0"
+    //系统ui控制器
+    implementation "com.google.accompanist:accompanist-systemuicontroller:$accompanistVersion"
+    //glide
+    implementation "com.google.accompanist:accompanist-glide:0.15.0"
+    //viewPager
+    implementation "com.google.accompanist:accompanist-pager:0.25.0"
+    implementation "com.google.accompanist:accompanist-pager-indicators:0.25.0"
+    //下拉刷新
+    implementation "com.google.accompanist:accompanist-swiperefresh:$accompanistVersion"
+    //流式布局
+    implementation "com.google.accompanist:accompanist-flowlayout:$accompanistVersion"
+    //placeholder
+    implementation "com.google.accompanist:accompanist-placeholder-material:$accompanistVersion"
+    implementation "com.google.accompanist:accompanist-navigation-animation:0.25.1"
+
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    // GPS权限申请
+    implementation "com.google.accompanist:accompanist-permissions:0.28.0"
+    //paging分页库
+    implementation "androidx.paging:paging-runtime:$pagingVersion"
+    testImplementation "androidx.paging:paging-common:$pagingVersion"
+    implementation "androidx.paging:paging-compose:$pagingComposeVersion"
+
+
+
+
+    //util
+    implementation"androidx.compose.ui:ui-util:1.3.3"
+
+    api "androidx.datastore:datastore-preferences:1.0.0-alpha05"//datastore
+    def accompanist_version = "0.24.3-alpha"
+    implementation "com.google.accompanist:accompanist-navigation-animation:$accompanist_version"
+
+    // 高德地图：OMniMap-compose库
+    implementation project(path: ':gd-map-compose')
+}

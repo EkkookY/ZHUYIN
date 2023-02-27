@@ -1,0 +1,42 @@
+[
+  {
+    "latitude": 24.816221,
+    "longitude": 98.31577,
+    "assets_name": "ic_achang_zu.webp"
+  },
+  {
+    "latitude": 24.966677,
+    "longitude": 102.658234,
+    "assets_name": "ic_bai_zu.webp"
+  },
+  {
+    "latitude": 35.717693,
+    "longitude": 102.875319,
+    "assets_name": "ic_baoan_zu.webp"
+  },
+  {
+    "latitude": 21.583302,
+    "longitude": 100.418449,
+    "assets_name": "ic_bulang_zu.webp"
+  },
+  {
+    "latitude": 25.095454,
+    "longitude": 104.931926,
+    "assets_name": "ic_buyi_zu.webp"
+  },
+  {
+    "latitude": 34.983266,
+    "longitude": 102.911736,
+    "assets_name": "ic_zang_zu.webp"
+  },
+  {
+    "latitude": 42.909426,
+    "longitude": 129.470605,
+    "assets_name": "ic_chaoxian_zu.webp"
+  },
+  {
+    "latitude": 48.477728,
+    "longitude": 124.519023,
+    "assets_name": "ic_dahaner_zu.webp"
+  }
+]

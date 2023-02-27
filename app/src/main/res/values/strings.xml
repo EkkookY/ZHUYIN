@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">TestZHUYIN</string>
+
+    <string name="bottom_bar_popularize">百科</string>
+    <string name="bottom_bar_community">社区</string>
+    <string name="bottom_bar_journey">旅途</string>
+    <string name="bottom_bar_mine">我的</string>
+
+
+    <string name="home_content_11">回族的名称来历</string>
+    <string name="home_content_12">傈僳族刀杆节</string>
+    <string name="home_content_13">凤凰山山城</string>
+    <string name="home_content_14">大理生皮生肉</string>
+    <string name="home_content_15">1xxxxx</string>
+    <string name="home_content_16">2xxxxx</string>
+</resources>
